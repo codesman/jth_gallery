@@ -78,24 +78,55 @@ class Jth_Gallery
         }
         $this->f = $f;
 
-        add_filter( 'post_gallery', array( __CLASS__, 'my_gallery_shortcode'), 10, 4 );
+        add_filter( 'post_gallery', array( __CLASS__,
+                                           'my_gallery_shortcode'
+        ), 10, 4 );
+        add_shortcode( 'home_gallery_banner', array( __CLASS__,
+                                                     'home_gallery_banner'
+        ) );
     }
+
     public function my_gallery_shortcode( $output = '', $atts, $content = false, $tag = false )
     {
         $return = $output; // fallback
-
-        var_dump($atts);
-        $output = str_replace('>', ' rel="gallery-gallery">', $output);
+        $output = str_replace( '>', ' rel="gallery-gallery">', $output );
         // retrieve content of your own gallery function
-        $my_result =  $output;
+        $my_result = $output;
 
         // boolean false = empty, see http://php.net/empty
-        if( !empty( $my_result ) ) {
+        if ( !empty( $my_result ) )
+        {
             $return = $my_result;
         }
 
         return $return;
     }
+
+    private function banner_images()
+    {
+        static $gallery_id = 2176;
+
+        $children_array = get_children( array( 'post_parent' => $gallery_id,
+                                               'posts_per_page' => 9
+        ) );
+
+        foreach ( $children_array as $image_id )
+        {
+            echo wp_get_attachment_image( $image_id->ID, 'gallery-medium', 0, array( 'class' => 'nothickbox' ) );
+        }
+
+        return null;
+    }
+
+    public function home_gallery_banner()
+    {
+        ob_start();
+
+        ?><a href="gallery/" class="home_gallery"><?php print self::banner_images(); ?><h2>Click Here to see pictures of recent tours and our satified guests!</h2></a><?php
+
+        return ob_get_clean();
+    }
+
     /**
      * Do not allow writing access to properties.
      *
