@@ -1,0 +1,23 @@
+{
+    "name": "lucatume/tdd-helpers",
+    "type": "library",
+    "description": "TDD helpers for PHP 5.2",
+    "keywords": ["tdd", "wrapper"],
+    "homepage": "http://github.com/lucatume/tdd-helpers",
+    "license": "MIT",
+    "authors": [{
+        "name": "theAverageDev (Luca Tumedei)",
+        "email": "luca@theaveragedev.com",
+        "homepage": "http://theaveragedev.com",
+        "role": "Developer"
+    }],
+    "require": {
+        "php": ">=5.2.0"
+    },
+    "require-dev": {
+        "codeception/codeception": "*"
+    },
+    "autoload": {
+        "classmap": ["src/"]
+    }
+}
