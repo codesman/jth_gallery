@@ -84,6 +84,9 @@ class Jth_Gallery
         add_shortcode( 'home_gallery_banner', array( __CLASS__,
                                                      'home_gallery_banner'
         ) );
+        add_shortcode( 'home_video_banner', array( __CLASS__,
+            'home_video_banner'
+        ) );
     }
 
     public function my_gallery_shortcode( $output = '', $atts, $content = false, $tag = false )
@@ -118,11 +121,35 @@ class Jth_Gallery
         return null;
     }
 
+    private function get_banner_images($index = 0)
+    {
+        static $gallery_id = 2176;
+
+        $children_array = get_children( array( 'post_parent' => $gallery_id,
+                                               'posts_per_page' => 9
+        ) );
+
+        return $children_array[$index];
+    }
+
     public function home_gallery_banner()
     {
         ob_start();
 
         ?><a href="gallery/" class="home_gallery"><?php print self::banner_images(); ?><h2>Click Here to see pictures of recent tours and our satified guests!</h2></a><?php
+
+        return ob_get_clean();
+    }
+
+    public function home_video_banner()
+    {
+        ob_start();
+
+        ?><video id="9589b301" class="sublime" poster="http://5e669e368778bd9c9bb4-4555f8d325a5c155a308e6d967cbf0cc.r96.cf1.rackcdn.com/hjt_promo/hjt-promo-thumbnail.jpg" width="700" height="393" title="Hawaii Jeep Tours - Awesome!" data-uid="9589b301"  data-autoresize="fit" preload="none" data-google-analytics-enable='true'>
+        <source src="http://5e669e368778bd9c9bb4-4555f8d325a5c155a308e6d967cbf0cc.r96.cf1.rackcdn.com/hjt_promo/2015-02-26_HJT-Promo-360.mp4" />
+        <source src="http://5e669e368778bd9c9bb4-4555f8d325a5c155a308e6d967cbf0cc.r96.cf1.rackcdn.com/hjt_promo/2015-02-26_HJT-Promo-720.mp4" data-quality="hd" />
+        <source src="http://5e669e368778bd9c9bb4-4555f8d325a5c155a308e6d967cbf0cc.r96.cf1.rackcdn.com/hjt_promo/2015-02-26_HJT-Promo-180.mp4" />
+    </video><?php
 
         return ob_get_clean();
     }
