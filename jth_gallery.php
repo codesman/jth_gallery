@@ -136,19 +136,19 @@ class Jth_Gallery
     {
         ob_start();
 
-        ?><a href="gallery/" class="home_gallery"><?php print self::banner_images(); ?><h2>Click Here to see pictures of recent tours and our satified guests!</h2></a><?php
+        ?><a href="gallery/" class="home_gallery"><?php print self::banner_images(); ?><h2>Click Here to see pictures of recent tours and our satisfied guests!</h2></a><?php
 
         return ob_get_clean();
     }
 
-    public function home_video_banner()
+    public static function home_video_banner()
     {
         ob_start();
 
-        ?><video id="9589b301" class="sublime" poster="http://5e669e368778bd9c9bb4-4555f8d325a5c155a308e6d967cbf0cc.r96.cf1.rackcdn.com/hjt_promo/hjt-promo-thumbnail.jpg" width="700" height="393" title="Hawaii Jeep Tours - Awesome!" data-uid="9589b301"  data-autoresize="fit" preload="none" data-google-analytics-enable='true'>
-        <source src="http://5e669e368778bd9c9bb4-4555f8d325a5c155a308e6d967cbf0cc.r96.cf1.rackcdn.com/hjt_promo/2015-02-26_HJT-Promo-360.mp4" />
-        <source src="http://5e669e368778bd9c9bb4-4555f8d325a5c155a308e6d967cbf0cc.r96.cf1.rackcdn.com/hjt_promo/2015-02-26_HJT-Promo-720.mp4" data-quality="hd" />
-        <source src="http://5e669e368778bd9c9bb4-4555f8d325a5c155a308e6d967cbf0cc.r96.cf1.rackcdn.com/hjt_promo/2015-02-26_HJT-Promo-180.mp4" />
+        ?><video id="9589b301" class="sublime" poster="https://43c06f8b102c8e410d10-4555f8d325a5c155a308e6d967cbf0cc.ssl.cf1.rackcdn.com/hjt_promo/hjt-promo-thumbnail.jpg" width="700" height="393" title="Hawaii Jeep Tours - Awesome!" data-uid="9589b301"  data-autoresize="fit" preload="none" data-google-analytics-enable='true'>
+        <source src="https://43c06f8b102c8e410d10-4555f8d325a5c155a308e6d967cbf0cc.ssl.cf1.rackcdn.com/hjt_promo/2015-02-26_HJT-Promo-360.mp4" />
+        <source src="https://43c06f8b102c8e410d10-4555f8d325a5c155a308e6d967cbf0cc.ssl.cf1.rackcdn.com/hjt_promo/2015-02-26_HJT-Promo-720.mp4" data-quality="hd" />
+        <source src="https://43c06f8b102c8e410d10-4555f8d325a5c155a308e6d967cbf0cc.ssl.cf1.rackcdn.com/hjt_promo/2015-02-26_HJT-Promo-1080.mp4" />
     </video><?php
 
         return ob_get_clean();
